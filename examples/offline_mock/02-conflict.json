@@ -1,0 +1,167 @@
+{
+  "question": "差旅报销最晚多久提交？",
+  "history": [],
+  "mode": "offline_mock",
+  "model": "offline_scripted_mock__not_llm_evidence",
+  "status": "needs_clarification",
+  "answer": "不同制度对差旅报销期限的规定不一致，无法确定适用条款。",
+  "citations": [
+    {
+      "document_id": "D01",
+      "quote": "员工应在差旅行程结束后30个自然日内提交报销申请。"
+    },
+    {
+      "document_id": "D02",
+      "quote": "员工应在差旅行程结束后15个自然日内提交报销申请。"
+    },
+    {
+      "document_id": "D07",
+      "quote": "差旅报销申请应附行程单、有效发票及费用明细；如缺失发票，应先联系财务专员核实处理方式。"
+    }
+  ],
+  "gaps": [
+    "请确认适用制度、所属范围及生效优先级"
+  ],
+  "trace": [
+    {
+      "model_step": 1,
+      "action": "search_documents",
+      "tool_args": {
+        "query": "差旅报销最晚多久提交？"
+      },
+      "decision_basis": "先检索相关制度",
+      "tool_result": {
+        "ok": true,
+        "results": [
+          {
+            "document_id": "D01",
+            "title": "差旅报销期限（制度甲）",
+            "version": "1.0",
+            "version_date": "2026-04-01",
+            "preview": "制度甲：差旅费用报销时间要求，具体条款需读取原文。",
+            "match_score": 5
+          },
+          {
+            "document_id": "D02",
+            "title": "差旅报销期限（制度乙）",
+            "version": "2.0",
+            "version_date": "2026-04-10",
+            "preview": "制度乙：差旅费用报销时间要求，具体条款需读取原文。",
+            "match_score": 5
+          },
+          {
+            "document_id": "D07",
+            "title": "差旅报销所需凭证",
+            "version": "1.0",
+            "version_date": "2026-04-03",
+            "preview": "报销申请需要提供的原始凭证。",
+            "match_score": 2
+          }
+        ],
+        "total_matches": 3,
+        "query": "差旅报销最晚多久提交？"
+      },
+      "tool_result_summary": "hits=D01,D02,D07; total=3",
+      "next_action": "read_document"
+    },
+    {
+      "model_step": 2,
+      "action": "read_document",
+      "tool_args": {
+        "document_id": "D01"
+      },
+      "decision_basis": "读取完整原文以核实引用；失败则仅重试一次",
+      "tool_result": {
+        "ok": true,
+        "id": "D01",
+        "title": "差旅报销期限（制度甲）",
+        "version": "1.0",
+        "version_date": "2026-04-01",
+        "scope": "未注明适用范围",
+        "text": "员工应在差旅行程结束后30个自然日内提交报销申请。"
+      },
+      "tool_result_summary": "read=D01; version=1.0; text=员工应在差旅行程结束后30个自然日内提交报销申请。",
+      "next_action": "read_document"
+    },
+    {
+      "model_step": 3,
+      "action": "read_document",
+      "tool_args": {
+        "document_id": "D02"
+      },
+      "decision_basis": "读取完整原文以核实引用；失败则仅重试一次",
+      "tool_result": {
+        "ok": true,
+        "id": "D02",
+        "title": "差旅报销期限（制度乙）",
+        "version": "2.0",
+        "version_date": "2026-04-10",
+        "scope": "未注明适用范围",
+        "text": "员工应在差旅行程结束后15个自然日内提交报销申请。"
+      },
+      "tool_result_summary": "read=D02; version=2.0; text=员工应在差旅行程结束后15个自然日内提交报销申请。",
+      "next_action": "read_document"
+    },
+    {
+      "model_step": 4,
+      "action": "read_document",
+      "tool_args": {
+        "document_id": "D07"
+      },
+      "decision_basis": "读取完整原文以核实引用；失败则仅重试一次",
+      "tool_result": {
+        "ok": true,
+        "id": "D07",
+        "title": "差旅报销所需凭证",
+        "version": "1.0",
+        "version_date": "2026-04-03",
+        "scope": "差旅报销员工",
+        "text": "差旅报销申请应附行程单、有效发票及费用明细；如缺失发票，应先联系财务专员核实处理方式。"
+      },
+      "tool_result_summary": "read=D07; version=1.0; text=差旅报销申请应附行程单、有效发票及费用明细；如缺失发票，应先联系财务专员核实处理方式。",
+      "next_action": "submit_answer"
+    },
+    {
+      "model_step": 5,
+      "action": "submit_answer",
+      "tool_args": {
+        "status": "needs_clarification",
+        "answer": "不同制度对差旅报销期限的规定不一致，无法确定适用条款。",
+        "citations": [
+          {
+            "document_id": "D01",
+            "quote": "员工应在差旅行程结束后30个自然日内提交报销申请。"
+          },
+          {
+            "document_id": "D02",
+            "quote": "员工应在差旅行程结束后15个自然日内提交报销申请。"
+          },
+          {
+            "document_id": "D07",
+            "quote": "差旅报销申请应附行程单、有效发票及费用明细；如缺失发票，应先联系财务专员核实处理方式。"
+          }
+        ],
+        "gaps": [
+          "请确认适用制度、所属范围及生效优先级"
+        ]
+      },
+      "decision_basis": "已读证据出现期限冲突，停止选择单一答案",
+      "tool_result": {
+        "ok": true,
+        "message": "OK"
+      },
+      "tool_result_summary": "ACCEPTED",
+      "next_action": "END"
+    }
+  ],
+  "model_steps_used": 5,
+  "tool_calls_used": 5,
+  "token_usage_reported": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 0
+  },
+  "run_utc": "2026-10-28T12:49:24.402967+00:00"
+}

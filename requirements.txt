@@ -1,0 +1,2 @@
+# Only required for live LLM calls. Offline mock and unittest use the standard library.
+openai>=1.60,<3

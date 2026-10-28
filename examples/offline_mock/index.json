@@ -1,0 +1,77 @@
+[
+  {
+    "file": "01-normal.json",
+    "status": "complete",
+    "actions": [
+      "search_documents",
+      "read_document",
+      "submit_answer"
+    ],
+    "model_mode": "OFFLINE SCRIPTED MOCK - NOT real model evidence"
+  },
+  {
+    "file": "02-conflict.json",
+    "status": "needs_clarification",
+    "actions": [
+      "search_documents",
+      "read_document",
+      "read_document",
+      "read_document",
+      "submit_answer"
+    ],
+    "model_mode": "OFFLINE SCRIPTED MOCK - NOT real model evidence"
+  },
+  {
+    "file": "03-out-of-scope.json",
+    "status": "not_found",
+    "actions": [
+      "search_documents",
+      "search_documents",
+      "submit_answer"
+    ],
+    "model_mode": "OFFLINE SCRIPTED MOCK - NOT real model evidence"
+  },
+  {
+    "file": "04-paraphrase.json",
+    "status": "complete",
+    "actions": [
+      "search_documents",
+      "read_document",
+      "submit_answer"
+    ],
+    "model_mode": "OFFLINE SCRIPTED MOCK - NOT real model evidence"
+  },
+  {
+    "file": "05-follow-up.json",
+    "status": "complete",
+    "actions": [
+      "search_documents",
+      "read_document",
+      "read_document",
+      "submit_answer"
+    ],
+    "model_mode": "OFFLINE SCRIPTED MOCK - NOT real model evidence"
+  },
+  {
+    "file": "06-search-failure.json",
+    "status": "complete",
+    "actions": [
+      "search_documents",
+      "search_documents",
+      "read_document",
+      "submit_answer"
+    ],
+    "model_mode": "OFFLINE SCRIPTED MOCK - NOT real model evidence"
+  },
+  {
+    "file": "07-read-failure.json",
+    "status": "complete",
+    "actions": [
+      "search_documents",
+      "read_document",
+      "read_document",
+      "submit_answer"
+    ],
+    "model_mode": "OFFLINE SCRIPTED MOCK - NOT real model evidence"
+  }
+]

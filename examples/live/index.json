@@ -1,0 +1,117 @@
+[
+  {
+    "file": "01-normal.json",
+    "status": "complete",
+    "token_usage_reported": {
+      "prompt_tokens": 2812,
+      "completion_tokens": 333,
+      "total_tokens": 3145,
+      "prompt_cache_hit_tokens": 1664,
+      "prompt_cache_miss_tokens": 1148
+    },
+    "trace_actions": [
+      "search_documents",
+      "read_document",
+      "submit_answer"
+    ]
+  },
+  {
+    "file": "02-conflict.json",
+    "status": "needs_clarification",
+    "token_usage_reported": {
+      "prompt_tokens": 4636,
+      "completion_tokens": 505,
+      "total_tokens": 5141,
+      "prompt_cache_hit_tokens": 3072,
+      "prompt_cache_miss_tokens": 1564
+    },
+    "trace_actions": [
+      "search_documents",
+      "read_document",
+      "read_document",
+      "submit_answer"
+    ]
+  },
+  {
+    "file": "03-out-of-scope.json",
+    "status": "not_found",
+    "token_usage_reported": {
+      "prompt_tokens": 2621,
+      "completion_tokens": 306,
+      "total_tokens": 2927,
+      "prompt_cache_hit_tokens": 1920,
+      "prompt_cache_miss_tokens": 701
+    },
+    "trace_actions": [
+      "search_documents",
+      "search_documents",
+      "submit_answer"
+    ]
+  },
+  {
+    "file": "04-paraphrase.json",
+    "status": "complete",
+    "token_usage_reported": {
+      "prompt_tokens": 2951,
+      "completion_tokens": 319,
+      "total_tokens": 3270,
+      "prompt_cache_hit_tokens": 2304,
+      "prompt_cache_miss_tokens": 647
+    },
+    "trace_actions": [
+      "search_documents",
+      "read_document",
+      "submit_answer"
+    ]
+  },
+  {
+    "file": "05-follow-up.json",
+    "status": "complete",
+    "token_usage_reported": {
+      "prompt_tokens": 2882,
+      "completion_tokens": 289,
+      "total_tokens": 3171,
+      "prompt_cache_hit_tokens": 2304,
+      "prompt_cache_miss_tokens": 578
+    },
+    "trace_actions": [
+      "search_documents",
+      "read_document",
+      "submit_answer"
+    ]
+  },
+  {
+    "file": "06-search-failure.json",
+    "status": "complete",
+    "token_usage_reported": {
+      "prompt_tokens": 4083,
+      "completion_tokens": 450,
+      "total_tokens": 4533,
+      "prompt_cache_hit_tokens": 3328,
+      "prompt_cache_miss_tokens": 755
+    },
+    "trace_actions": [
+      "search_documents",
+      "search_documents",
+      "read_document",
+      "submit_answer"
+    ]
+  },
+  {
+    "file": "07-read-failure.json",
+    "status": "complete",
+    "token_usage_reported": {
+      "prompt_tokens": 3934,
+      "completion_tokens": 422,
+      "total_tokens": 4356,
+      "prompt_cache_hit_tokens": 3200,
+      "prompt_cache_miss_tokens": 734
+    },
+    "trace_actions": [
+      "search_documents",
+      "read_document",
+      "read_document",
+      "submit_answer"
+    ]
+  }
+]

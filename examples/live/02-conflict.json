@@ -1,0 +1,140 @@
+{
+  "question": "差旅报销最晚多久提交？",
+  "history": [],
+  "mode": "live_llm",
+  "model": "deepseek-flash",
+  "status": "needs_clarification",
+  "answer": "存在两份制度文件，对差旅报销提交时限的规定不一致，且两者均未注明适用范围，无法确定优先级，需澄清：\n\n- 制度甲（v1.0，2026-04-01）：\"员工应在差旅行程结束后30个自然日内提交报销申请。\"\n- 制度乙（v2.0，2026-04-10）：\"员工应在差旅行程结束后15个自然日内提交报销申请。\"\n\n即一份规定30个自然日，另一份规定15个自然日。请确认您的所属单位/适用版本后再确定最晚提交时间。",
+  "citations": [
+    {
+      "document_id": "D01",
+      "quote": "员工应在差旅行程结束后30个自然日内提交报销申请。"
+    },
+    {
+      "document_id": "D02",
+      "quote": "员工应在差旅行程结束后15个自然日内提交报销申请。"
+    }
+  ],
+  "gaps": [
+    "两份制度的 scope 均未注明适用范围，无法判定哪一份适用或优先。"
+  ],
+  "trace": [
+    {
+      "model_step": 1,
+      "action": "search_documents",
+      "tool_args": {
+        "query": "差旅报销 提交时限 最晚"
+      },
+      "decision_basis": "查找差旅费用报销提交时限的制度原文",
+      "tool_result": {
+        "ok": true,
+        "results": [
+          {
+            "document_id": "D01",
+            "title": "差旅报销期限（制度甲）",
+            "version": "1.0",
+            "version_date": "2026-04-01",
+            "preview": "制度甲：差旅费用报销时间要求，具体条款需读取原文。",
+            "match_score": 4
+          },
+          {
+            "document_id": "D02",
+            "title": "差旅报销期限（制度乙）",
+            "version": "2.0",
+            "version_date": "2026-04-10",
+            "preview": "制度乙：差旅费用报销时间要求，具体条款需读取原文。",
+            "match_score": 4
+          },
+          {
+            "document_id": "D07",
+            "title": "差旅报销所需凭证",
+            "version": "1.0",
+            "version_date": "2026-04-03",
+            "preview": "报销申请需要提供的原始凭证。",
+            "match_score": 2
+          }
+        ],
+        "total_matches": 3,
+        "query": "差旅报销 提交时限 最晚"
+      },
+      "tool_result_summary": "hits=D01,D02,D07; total=3",
+      "next_action": "read_document"
+    },
+    {
+      "model_step": 2,
+      "action": "read_document",
+      "tool_args": {
+        "document_id": "D01"
+      },
+      "decision_basis": "读取制度甲关于报销期限的原文条款",
+      "tool_result": {
+        "ok": true,
+        "id": "D01",
+        "title": "差旅报销期限（制度甲）",
+        "version": "1.0",
+        "version_date": "2026-04-01",
+        "scope": "未注明适用范围",
+        "text": "员工应在差旅行程结束后30个自然日内提交报销申请。"
+      },
+      "tool_result_summary": "read=D01; version=1.0; text=员工应在差旅行程结束后30个自然日内提交报销申请。",
+      "next_action": "read_document"
+    },
+    {
+      "model_step": 3,
+      "action": "read_document",
+      "tool_args": {
+        "document_id": "D02"
+      },
+      "decision_basis": "读取制度乙对应条款以比对是否与制度甲冲突",
+      "tool_result": {
+        "ok": true,
+        "id": "D02",
+        "title": "差旅报销期限（制度乙）",
+        "version": "2.0",
+        "version_date": "2026-04-10",
+        "scope": "未注明适用范围",
+        "text": "员工应在差旅行程结束后15个自然日内提交报销申请。"
+      },
+      "tool_result_summary": "read=D02; version=2.0; text=员工应在差旅行程结束后15个自然日内提交报销申请。",
+      "next_action": "submit_answer"
+    },
+    {
+      "model_step": 4,
+      "action": "submit_answer",
+      "tool_args": {
+        "answer": "存在两份制度文件，对差旅报销提交时限的规定不一致，且两者均未注明适用范围，无法确定优先级，需澄清：\n\n- 制度甲（v1.0，2026-04-01）：\"员工应在差旅行程结束后30个自然日内提交报销申请。\"\n- 制度乙（v2.0，2026-04-10）：\"员工应在差旅行程结束后15个自然日内提交报销申请。\"\n\n即一份规定30个自然日，另一份规定15个自然日。请确认您的所属单位/适用版本后再确定最晚提交时间。",
+        "status": "needs_clarification",
+        "citations": [
+          {
+            "document_id": "D01",
+            "quote": "员工应在差旅行程结束后30个自然日内提交报销申请。"
+          },
+          {
+            "document_id": "D02",
+            "quote": "员工应在差旅行程结束后15个自然日内提交报销申请。"
+          }
+        ],
+        "gaps": [
+          "两份制度的 scope 均未注明适用范围，无法判定哪一份适用或优先。"
+        ]
+      },
+      "decision_basis": "两份制度对同一事项分别规定30个与15个自然日，且均未注明适用范围，故需澄清。",
+      "tool_result": {
+        "ok": true,
+        "message": "OK"
+      },
+      "tool_result_summary": "ACCEPTED",
+      "next_action": "END"
+    }
+  ],
+  "model_steps_used": 4,
+  "tool_calls_used": 4,
+  "token_usage_reported": {
+    "prompt_tokens": 4636,
+    "completion_tokens": 505,
+    "total_tokens": 5141,
+    "prompt_cache_hit_tokens": 3072,
+    "prompt_cache_miss_tokens": 1564
+  },
+  "run_utc": "2026-10-28T13:21:26.508821+00:00"
+}

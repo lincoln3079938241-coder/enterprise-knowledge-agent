@@ -1,0 +1,75 @@
+{
+  "question": "食堂今日晚餐菜单是什么？",
+  "history": [],
+  "mode": "offline_mock",
+  "model": "offline_scripted_mock__not_llm_evidence",
+  "status": "not_found",
+  "answer": "现有合成制度库没有足够资料回答。",
+  "citations": [],
+  "gaps": [
+    "未检索到与问题相关的制度文档"
+  ],
+  "trace": [
+    {
+      "model_step": 1,
+      "action": "search_documents",
+      "tool_args": {
+        "query": "食堂今日晚餐菜单是什么？"
+      },
+      "decision_basis": "先检索相关制度",
+      "tool_result": {
+        "ok": true,
+        "results": [],
+        "total_matches": 0,
+        "query": "食堂今日晚餐菜单是什么？"
+      },
+      "tool_result_summary": "hits=; total=0",
+      "next_action": "search_documents"
+    },
+    {
+      "model_step": 2,
+      "action": "search_documents",
+      "tool_args": {
+        "query": "食堂今日晚餐菜单是什么？"
+      },
+      "decision_basis": "首次未命中，改写问题重新检索",
+      "tool_result": {
+        "ok": true,
+        "results": [],
+        "total_matches": 0,
+        "query": "食堂今日晚餐菜单是什么？"
+      },
+      "tool_result_summary": "hits=; total=0",
+      "next_action": "submit_answer"
+    },
+    {
+      "model_step": 3,
+      "action": "submit_answer",
+      "tool_args": {
+        "status": "not_found",
+        "answer": "现有合成制度库没有足够资料回答。",
+        "citations": [],
+        "gaps": [
+          "未检索到与问题相关的制度文档"
+        ]
+      },
+      "decision_basis": "两次检索未找到文档",
+      "tool_result": {
+        "ok": true,
+        "message": "OK"
+      },
+      "tool_result_summary": "ACCEPTED",
+      "next_action": "END"
+    }
+  ],
+  "model_steps_used": 3,
+  "tool_calls_used": 3,
+  "token_usage_reported": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 0
+  },
+  "run_utc": "2026-10-28T12:49:24.403977+00:00"
+}
